@@ -59,12 +59,14 @@ export const getStaticProps: GetStaticProps = async () => {
   //   expand: ['product']
   // }) -> buscar as informações de produto
 
+  const valueUnitAmount = price.unit_amount ?? 0;
+
   const product = {
     priceId: price.id,
     amount: new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
-    }).format(price.unit_amount / 100),
+    }).format(valueUnitAmount / 100),
   }
 
   return {
