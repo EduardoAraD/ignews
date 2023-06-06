@@ -8,8 +8,8 @@ import { stripe } from '../services/stripe';
 
 /*
   Client-side -> pagina com informações que dependem de um usuário.
-  Server-side -> uma pagina com dados dinamicos, (ex: informações de usuário)
-  Static Site Generation -> uma pagina compartilhada para muita gente e não requer alteração continua(ex: Home de um blog, pagina de produto)
+  (SSR) Server-side -> uma pagina com dados dinamicos, (ex: informações de usuário)
+  (SSG) Static Site Generation -> uma pagina compartilhada para muita gente e não requer alteração continua(ex: Home de um blog, pagina de produto)
 
   Conteúdo do post -> STATIC
   comentários do post -> Client-side (Carrega depois da pagina ser carregada)
