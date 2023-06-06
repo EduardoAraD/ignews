@@ -60,7 +60,7 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
     if(relevantEvents.has(type)){
       try{
         switch (type) {
-          case 'customer.subscription.created':
+          // case 'customer.subscription.created': -> se tiver outras maneiras de criar uma subscription, é bom utilizar.
           case 'customer.subscription.updated':
           case 'customer.subscription.deleted':
             const subscription = event.data.object as Stripe.Subscription;
@@ -68,7 +68,7 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
             await saveSubscription(
               subscription.id.toString(),
               subscription.customer.toString(),
-              type === 'customer.subscription.created',
+              false,
             )
             break;
           case 'checkout.session.completed':
@@ -76,6 +76,7 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
             await saveSubscription(
               (checkoutSession.subscription ?? '').toString(),
               (checkoutSession.customer ?? '').toString(),
+              true,
             )
             
             break;
