@@ -1,9 +1,9 @@
 import type { AppProps } from 'next/app'
 import { Roboto } from 'next/font/google'
-import { SessionProvider as NextAuthProvider } from 'next-auth/react' 
+import { SessionProvider as NextAuthProvider } from 'next-auth/react'
 
-import '../styles/global.scss';
 import { Header } from '../components/Header';
+import '../styles/global.scss';
 
 const roboto = Roboto({
   weight: ['400', '700', '900'],
