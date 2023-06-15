@@ -18,7 +18,7 @@ import { stripe } from '../services/stripe';
 interface HomeProps {
   product: {
     priceId: string;
-    amount: number;
+    amount: string;
   }
 }
 
@@ -38,7 +38,7 @@ export default function Home({ product } : HomeProps) {
             <span>for {product.amount} month</span>
           </p>
 
-          <SubscribeButton priceId={product.priceId} />
+          <SubscribeButton />
         </section>
         <Image
           src="/images/avatar.svg"
@@ -63,9 +63,9 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const product = {
     priceId: price.id,
-    amount: new Intl.NumberFormat('pt-BR', {
+    amount: new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'BRL',
+      currency: 'USD',
     }).format(valueUnitAmount / 100),
   }
 
