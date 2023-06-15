@@ -6,11 +6,7 @@ import { getStripeJs } from '../../services/stripe-js';
 import styles from './styles.module.scss';
 import { useRouter } from 'next/router';
 
-interface SubscribeButtonProps {
-  priceId: string;
-}
-
-export function SubscribeButton (props: SubscribeButtonProps) {
+export function SubscribeButton () {
   const { data, status } = useSession();
   const router = useRouter();
 
