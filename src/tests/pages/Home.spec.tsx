@@ -2,6 +2,9 @@ import { render, screen } from '@testing-library/react'
 import HomePage, { getStaticProps } from '../../pages';
 import { stripe } from '../../services/stripe';
 
+// covarage
+// yarn jest --coverage
+
 jest.mock('next-auth/react', () => ({
   useSession: () => ({
     data: null,
